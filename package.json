@@ -1,0 +1,24 @@
+{
+  "name": "timestamp-microservice",
+  "version": "1.0.0",
+  "description": "Timestamp microservice that returns a Unix timestamp and a timestamp thats readable by humans",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LS8/timestamp-microservice.git"
+  },
+  "keywords": [
+    "fcc",
+    "timestamp",
+    "unixtime"
+  ],
+  "author": "LS8",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LS8/timestamp-microservice/issues"
+  },
+  "homepage": "https://github.com/LS8/timestamp-microservice#readme"
+}
