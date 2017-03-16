@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/LS8/timestamp-microservice#readme",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "moment": "^2.17.1"
   }
 }
