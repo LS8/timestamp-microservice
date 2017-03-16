@@ -1,6 +1,9 @@
 var express = require('express');
-var moment = require('moment');
 var app = express();
+var helper = require('./helper.js');
+var processNaturalDate = helper.processNaturalDate;
+var processUnixDate = helper.processUnixDate;
+
 var date = { unix: null, natural: null };
 
 app.get('*', function(req, res) {
@@ -15,9 +18,8 @@ app.get('*', function(req, res) {
   }
   // Case 2: param is a natural language date
   else if  (naturalDate) {
-    var unixDate = +new Date(moment(naturalDate).toISOString()) / 1000;
-    date.natural = naturalDate.slice(0, 15);
-    date.unix = unixDate;
+    date.natural = naturalDate.naturalDate.slice(0, 15);
+    date.unix = naturalDate.unixDate;
   }
   res.send(JSON.stringify(date));
   res.end();
@@ -25,26 +27,3 @@ app.get('*', function(req, res) {
 
 app.listen(process.env.PORT || 8080);
 
-function processNaturalDate(dateString) {
-  var naturalDate = moment(dateString).toLocaleString();
-  if (naturalDate && naturalDate !== "Invalid date") {
-    return naturalDate;
-  } else {
-    return void 0;
-  }
-}
-
-function processUnixDate(unixTimestamp) {
-  var naturalDate = new Date(+unixTimestamp*1000);
-  var unixDate  = Date.parse(naturalDate);
-  if (unixDate) {
-    unixDate = unixDate/1000;
-    naturalDate = moment(naturalDate).toLocaleString().slice(0, 15);
-    return {
-      unixDate: unixDate,
-      naturalDate: naturalDate
-    }
-  } else {
-    return void 0;
-  }
-}
