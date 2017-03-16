@@ -4,7 +4,7 @@
   "description": "Timestamp microservice that returns a Unix timestamp and a timestamp thats readable by humans",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
   "dependencies": {
     "express": "^4.15.2",
     "moment": "^2.17.1"
+  },
+  "engines": {
+    "node": "7.7.2"
   }
 }
