@@ -6,20 +6,18 @@ var date = { unix: null, natural: null };
 app.get('*', function(req, res) {
   var param = req.params["0"].slice(1);
 
-  // Case 1: param is a natural language date
   var naturalDate = processNaturalDate(param);
-  if (naturalDate) {
+  var dates = processUnixDate(param);
+  // Case 1: param is a unix timestamp
+  if (dates) {
+      date.natural = dates.naturalDate;
+      date.unix = dates.unixDate;
+  }
+  // Case 2: param is a natural language date
+  else if  (naturalDate) {
     var unixDate = +new Date(moment(naturalDate).toISOString()) / 1000;
     date.natural = naturalDate.slice(0, 15);
     date.unix = unixDate;
-  }
-  // Case 2: param is a unix timestamp
-  else {
-    var dates = processUnixDate(param);
-    if (dates) {
-      date.natural = dates.naturalDate;
-      date.unix = dates.unixDate;
-    }
   }
   res.send(JSON.stringify(date));
   res.end();
