@@ -1,34 +1,33 @@
-var moment = require('moment');
+const moment = require('moment');
+
 function processNaturalDate(dateString) {
-  var naturalDate = moment(dateString).toISOString();
-  if (naturalDate && naturalDate !== "Invalid date") {
-    var unixDate = +new Date(moment(naturalDate)) / 1000;
-    var naturalDate = moment(dateString).toLocaleString();
+  let naturalDate = moment(dateString).toISOString();
+  if (naturalDate && naturalDate !== 'Invalid date') {
+    const unixDate = +new Date(moment(naturalDate)) / 1000;
+    naturalDate = moment(dateString).toLocaleString();
     return {
-      unixDate: unixDate,
-      naturalDate: naturalDate
-    }
-  } else {
-    return void 0;
+      unixDate,
+      naturalDate,
+    };
   }
+  return undefined;
 }
 
 function processUnixDate(unixTimestamp) {
-  var naturalDate = new Date(+unixTimestamp*1000);
-  var unixDate  = Date.parse(naturalDate);
+  let naturalDate = new Date(+unixTimestamp * 1000);
+  let unixDate = Date.parse(naturalDate);
   if (unixDate) {
-    unixDate = unixDate/1000;
+    unixDate /= 1000;
     naturalDate = moment(naturalDate).toLocaleString().slice(0, 15);
     return {
-      unixDate: unixDate,
-      naturalDate: naturalDate
-    }
-  } else {
-    return void 0;
+      unixDate,
+      naturalDate,
+    };
   }
+  return undefined;
 }
 
 module.exports = {
-  processNaturalDate: processNaturalDate,
-  processUnixDate: processUnixDate
-}
+  processNaturalDate,
+  processUnixDate,
+};
