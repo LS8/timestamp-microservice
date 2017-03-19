@@ -2,9 +2,12 @@
   "name": "timestamp-microservice",
   "version": "1.0.0",
   "description": "Timestamp microservice that returns a Unix timestamp and a timestamp thats readable by humans",
-  "main": "index.js",
+  "main": "app/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app/index.js",
+    "test": "mocha src/test/; exit 0",
+    "lint": "eslint src/js/*.js; exit 0",
+    "uglify": "uglifyjs app/js/app.js > app/js/script.min.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +33,12 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "moch": "0.0.1"
+    "mocha": "0.0.1",
+    "eslint": "latest",
+    "eslint-config-airbnb": "latest",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-jsx-a11y": "latest",
+    "eslint-plugin-react": "latest",
+    "uglify-js": "latest"
   }
 }
