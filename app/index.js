@@ -1,11 +1,12 @@
 const express = require('express');
-
-const helper = require('./helper.js');
-
+const processDate = require('./process-date.js');
+const path = require('path');
 const app = express();
-const processNaturalDate = helper.processNaturalDate;
-const processUnixDate = helper.processUnixDate;
+const processNaturalDate = processDate.processNaturalDate;
+const processUnixDate = processDate.processUnixDate;
 const date = { unix: null, natural: null };
+
+app.use(express.static(path.join(__dirname, '../static')));
 
 app.get('*', (req, res) => {
   const param = req.params['0'].slice(1);
