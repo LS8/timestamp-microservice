@@ -3,25 +3,31 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
     <title>Timestamp Microservice</title>
   </head>
   <body>
-    <h1>Timestamp Microservice</h1>
-    <br />
-    <h2>What does it do?</h2>
-    <ul>
-      <li>A string can be passed as a parameter and it will check wether that string contains either an unix timestamp or a natural language date (e.g January 1, 1980)</li>
-      <li>If it does, both - the unix timestamp and the natural language date - will be returned</li>
-      <li>If it doesn't contain a recognizable date, <i>null</i> is returned for both properties</li>
-    </ul>
-    <br />
-    <h2>Example Usage:</h2>
-    <code>https://timestamp-microservice-ls8.herokuapp.com/dec01</code>
-    <br />
-    <code>https://timestamp-microservice-ls8.herokuapp.com/1007164800</code>
-
-    <br />
-    <h2>Example Output:</h2>
-    <code>{"unix":1007164800,"natural":"Sat Dec 01 2001"}</code>
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <h2>Timestamp Microservice</h2>
+          <h3>What does it do?</h3>
+          <ul>
+            <li>A string can be passed as a parameter and it will check wether that string contains either an unix timestamp or a natural language date (e.g January 1, 1980)</li>
+            <li>If it does, both - the unix timestamp and the natural language date - will be returned</li>
+            <li>If it doesn't contain a recognizable date, <i>null</i> is returned for both properties</li>
+          </ul>
+        </div>
+        <div class="col s6">
+          <h3>Example Usage:</h3>
+          <blockquote>https://timestamp-microservice-ls8.herokuapp.com/dec01</blockquote>
+          <blockquote>https://timestamp-microservice-ls8.herokuapp.com/1007164800</blockquote>
+        </div>
+        <div class="col s6">
+          <h3>Example Output:</h3>
+          <blockquote>{"unix":1007164800,"natural":"Sat Dec 01 2001"}</blockquote>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
