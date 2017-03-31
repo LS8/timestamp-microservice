@@ -1,5 +1,5 @@
 var chai = require('chai');
-var helper = require('../js/helper.js');
+var helper = require('../app/process-date');
 var processNaturalDate = helper.processNaturalDate;
 var processUnixDate = helper.processUnixDate;
 var assert = chai.assert;
